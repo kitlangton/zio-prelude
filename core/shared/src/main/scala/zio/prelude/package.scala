@@ -189,7 +189,7 @@ package object prelude
     /** Applies function `f` to a value `a`, like `f(a)`, but in flipped order and doesn't need parentheses. Can be chained, like `x |> f |> g`. */
     def |>[B](f: A => B): B = f(a)
 
-    /** Applies the function `f` to the value `a`, ignores the result, and returns the original value `a`. Practical for debugging, like `x.someMethod.tee(println(_)).someOtherMethod...` . Similar to the `tee` UNIX command. */
+    /** Applies the function `f` to the value `a`, ignores the result, and returns the original value `a`. Practical for debugging, like `x.someMethod.tap(println(_)).someOtherMethod...`. */
     def tap(f: A => Any): A = {
       val _ = f(a)
       a
